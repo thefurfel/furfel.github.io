@@ -1,1 +1,16 @@
-<HTML><BODY><H1>Furfel.github.io</H1></BODY></HTML>
+<!DOCTYPE html>
+<HTML>
+	<HEAD>
+		<SCRIPT TYPE="text/javascript">
+		var u=navigator.userAgent;
+		function has(needle,haystack){
+			return haystack.indexOf(needle)!=-1;
+		}
+		if(has("Firefox",u) || has("Chrome",u) || has("Blink",u) || has("Webkit",u) || has("Android",u) || has("Safari",u)) window.location="index2.html"; else window.location="static.html";
+		</SCRIPT>
+	</HEAD>
+	<BODY>
+		<NOSCRIPT><B>JavaScript is disabled!</B></NOSCRIPT>
+		<BR><A HREF="static.html">Static website &gt;&gt;&gt;</A>
+	</BODY>
+</HTML>
