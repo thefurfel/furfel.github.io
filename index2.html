@@ -5,6 +5,29 @@
        <META HTTP-EQUIV="Content-Type" CONTENT="text\html; charset=utf-8" />
        <LINK TYPE="text/css" REL="Stylesheet" HREF="style.css" />
        <LINK TYPE="text/css" REL="Stylesheet" HREF="font.css" />
+       <SCRIPT TYPE="text/javascript" SRC="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></SCRIPT>
+       <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+       <SCRIPT TYPE="text/javascript">
+           function switch_page(page) {
+               $.ajax(page,{success:function(r){
+                   console.log(r);
+                   $("a.privacy-policy").each(function(){
+                      $(this).on("click",function() {
+                          var addr = $(this).attr("href");
+                          popup_doc(addr);
+                         return false; 
+                      });
+                   });
+               }});
+           }
+           
+           function popup_doc(addr) {
+               $.ajax(addr,{success:function(r){
+                   $("#dialog").html(r.text).dialog();
+               }})
+           }
+       </SCRIPT>
    </HEAD>
     <BODY>
        <HEADER>
@@ -35,7 +58,7 @@
                                Probably the most &quot;normal&quot; and advanced game I have ever made. A puzzle and racing crossover with the use of accelerometer.
                                <UL>
                                    <LI CLASS="icon-android"><A HREF="https://play.google.com/store/apps/details?id=com.furfel.game2demo">Google Play</A></LI>
-                                   <LI CLASS="icon-doc-text"><A HREF="https://docs.google.com/document/d/1Ay-81wuA-KkudzloLCT8baNNMVEgpQALTG2Qt4ZEaX8/pub">Privacy Policy</A></LI>
+                                   <LI CLASS="icon-doc-text"><A CLASS="privacy-policy" HREF="https://docs.google.com/document/d/1Ay-81wuA-KkudzloLCT8baNNMVEgpQALTG2Qt4ZEaX8/pub">Privacy Policy</A></LI>
                                 </UL>
                            </TD>
                        </TR>
@@ -50,7 +73,7 @@
                               Game made in practically several hours. Simple infinite tapper with achievements.
                                <UL>
                                    <LI CLASS="icon-android"><A HREF="https://play.google.com/store/apps/details?id=com.furfel.whatever">Google Play</A></LI>
-                                   <LI CLASS="icon-doc-text"><A HREF="">Privacy Policy</A></LI>
+                                   <LI CLASS="icon-doc-text"><A CLASS="privacy-policy" HREF="">Privacy Policy</A></LI>
                                 </UL>
                             </TD>
                        </TR>
@@ -65,7 +88,7 @@
                                Another stupid game made only to match memes and often searched keywords. Like Icy Tower/Doodle Jump but made of memes.
                                <UL>
                                    <LI CLASS="icon-android"><A HREF="https://play.google.com/store/apps/details?id=com.furfel.rekt420mlgfastjump">Google Play</A></LI>
-                                   <LI CLASS="icon-doc-text"><A HREF="">Privacy Policy</A></LI>
+                                   <LI CLASS="icon-doc-text"><A CLASS="privacy-policy" HREF="">Privacy Policy</A></LI>
                                 </UL>
                            </TD>
                        </TR>
@@ -78,6 +101,7 @@
                </UL>
            </ARTICLE>
         <!-- [ajax-end-here] -->
+        <DIV ID="dialog" STYLE="display:none"></DIV>
        </DIV>
     </BODY>
 </HTML>

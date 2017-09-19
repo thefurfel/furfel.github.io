@@ -90,6 +90,8 @@ ul.projects li table {
     font-size: 12px;
     color: #222;
     font-family: sans-serif;
+    text-align: left;
+    vertical-align: top;
 }
 
 .game-title {
@@ -97,6 +99,8 @@ ul.projects li table {
     color: #000;
     font-family: sans-serif;
     font-size: 14px;
+    text-align: left;
+    vertical-align: bottom;
 }
 
 .game-descr ul {
@@ -119,4 +123,9 @@ ul.projects li table {
 .game-descr a:active, .game-descr a:hover {
     color: darkred;
     text-decoration: underline;
+}
+
+.game-icon img {
+    max-width:96px;
+    max-height: 96px;
 }
